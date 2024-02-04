@@ -4,18 +4,13 @@ using Application;
 using Application.Features.Auth.Services;
 using System.Security.Claims;
 using Application.Base.Extensions;
-using Application.Features.Products.Mappings;
-using Application.Features.Bills.Mappings;
-using Application.Features.Documents.Mappings;
 using Application.Features.Files.Options;
 using Application.Features.Files.Services;
 using Application.Features.Host.Mappings;
 using Application.Features.Host.Options;
-using Application.Features.Warehouse.Mappings;
 using Application.Features.Users.Mappigns;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
-using NLog.Extensions.Logging;
 using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,18 +49,14 @@ builder.Services.AddAuthentication("Bearer");
 
 builder.Services.AddAutoMapperServices(cfg =>
 {
-    cfg.AddProfile<ProductsMappingProfile>();
-    cfg.AddProfile<BillsMappingProfile>();
-    cfg.AddProfile<DocumentsMappingProfile>();
     cfg.AddProfile<ApplicationMappingProfile>();
     using (ServiceProvider serviceProvider = builder.Services.BuildServiceProvider())
     {
-        cfg.AddProfile(new StorageCellsMappingProfile(serviceProvider.GetService<UserIdentity>()));
         cfg.AddProfile(new UsersMappingProfile(serviceProvider.GetService<UserIdentity>(),serviceProvider.GetService<FilesService>()));
     }
 });
 
-builder.Services.AddDbContext<UWDbContext>(opts =>
+builder.Services.AddDbContext<RDbContext>(opts =>
 {
     var connectionString = builder.Configuration.GetConnectionString("Database");
     opts.UseNpgsql(connectionString);

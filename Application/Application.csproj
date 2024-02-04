@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Features\Documents\Templates\DocxUwWayBillTemplate.docx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
@@ -25,16 +21,6 @@
     <PackageReference Include="NLog" Version="5.2.8" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.3.8" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.8" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Features\Documents\Templates\DocxUwWayBillTemplate.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Documents\Options\" />
   </ItemGroup>
 
 </Project>

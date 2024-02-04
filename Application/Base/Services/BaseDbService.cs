@@ -4,10 +4,10 @@ namespace Application.Base.Services;
 
 public abstract class BaseDbService
 {
-    public BaseDbService(UWDbContext dbContext)
+    public BaseDbService(RDbContext dbContext)
     {
         MasterDbContext = dbContext;
     }
 
-    protected readonly UWDbContext MasterDbContext;
+    protected readonly RDbContext MasterDbContext;
 }

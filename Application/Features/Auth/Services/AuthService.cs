@@ -12,7 +12,7 @@ using System.Security.Claims;
 
 namespace Application.Features.Auth.Services;
 
-public class AuthService(UWDbContext dbContext,
+public class AuthService(RDbContext dbContext,
 						IOptions<AuthOptions> options,
 						UsersService usersService,
 						IHttpContextAccessor httpContextAccessor) : BaseDbService(dbContext)
@@ -30,7 +30,7 @@ public class AuthService(UWDbContext dbContext,
         {
 			if (createIfNotExist)
 			{
-				user = await _usersService.CreateUser(new UwUser
+				user = await _usersService.CreateUser(new RUser
 				{
 					Email = creditinals.Email,
 					Password = creditinals.Password,
@@ -49,20 +49,11 @@ public class AuthService(UWDbContext dbContext,
 			return;
 		}
 		
-		var employee = await _usersService.GetEmployee(user.Id);
-
 		var claims = new List<Claim> {
 				new Claim(ClaimTypes.Email, user.Email),
-				new Claim(UwUserClaimTypes.UserId, user.Id.ToString())};
-		
-		if (employee != null)
-		{
-			claims.Add(new Claim(UwUserClaimTypes.EmployeeId, employee.Id.ToString()));
-		}
-
+				new Claim(RUserClaimTypes.UserId, user.Id.ToString())};
 
 		await _httpContext.Response.WriteAsync(GenerateBearerToken(claims));
-
 	}
 
     private string GenerateBearerToken(List<Claim> claims)

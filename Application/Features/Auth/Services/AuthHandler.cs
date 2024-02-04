@@ -1,13 +1,11 @@
 ﻿using Application.Features.Auth.Options;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
 using System.Security.Claims;
 using Application.Features.Host.Options;
 
@@ -73,7 +71,7 @@ public class AuthHandler(RequestDelegate next, IOptions<AuthOptions> options, IM
 			return;
 		}
 
-		var userId = claims.Claims.First(q => q.Type == UwUserClaimTypes.UserId);
+		var userId = claims.Claims.First(q => q.Type == RUserClaimTypes.UserId);
 		_cache.Set($"user_{userId}", claims, TimeSpan.FromMinutes(30));
 
 		context.User = claims;

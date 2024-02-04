@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Users.Services;
 
-public class UsersService(UserIdentity userIdentity, UWDbContext db, FilesService filesService) : BaseDbService(db)
+public class UsersService(UserIdentity userIdentity, RDbContext db, FilesService filesService) : BaseDbService(db)
 {
     private readonly UserIdentity _userIdentity = userIdentity;
     private readonly FilesService _filesService = filesService;
 
-	public async Task<UwUser> CreateUser(UwUser user)
+	public async Task<RUser> CreateUser(RUser user)
     {
         MasterDbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
 
@@ -23,27 +23,15 @@ public class UsersService(UserIdentity userIdentity, UWDbContext db, FilesServic
 		return user;
     }
 
-    public async Task<UwUser?> GetUser(Guid userId) => await MasterDbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    public async Task<RUser?> GetUser(Guid userId) => await MasterDbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
-	public async Task<UwUser?> GetUserByEmail(string email) => await MasterDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+	public async Task<RUser?> GetUserByEmail(string email) => await MasterDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
 
-    public async Task<UwUser> GetUser() => await MasterDbContext.Users
+    public async Task<RUser> GetUser() => await MasterDbContext.Users
 	    .Include(q => q.Image)
 	    .FirstAsync(q => q.Id == _userIdentity.UserId);
 
-    public async Task<ICollection<UwUser>> GetClients()
-    {
-        var query = from u in MasterDbContext.Users
-                    from e in MasterDbContext.Employees.Where(q => q.UserId == u.Id).DefaultIfEmpty()
-                    where e == null
-                    select u;
-
-        return await query.ToListAsync();
-	}
-
-    public async Task<UwEmployee?> GetEmployee(Guid? userId = null) => await MasterDbContext.Employees.FirstOrDefaultAsync(q => q.UserId == (userId ?? _userIdentity.UserId));
-
-    public async Task<UwUser> UpdateProfile(UpdateUserProfileModel model)
+    public async Task<RUser> UpdateProfile(UpdateUserProfileModel model)
     {
 	    var user = await GetUser();
 
@@ -55,7 +43,7 @@ public class UsersService(UserIdentity userIdentity, UWDbContext db, FilesServic
 	    {
 		    if (user.Image == null)
 		    {
-			    user.Image = new UwImage
+			    user.Image = new RImage
 			    {
 				    Name = await _filesService.Write(model!.Image)
 			    };

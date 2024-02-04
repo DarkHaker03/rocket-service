@@ -21,22 +21,7 @@ public class UserIdentity
 	{
 		get 
 		{ 
-			return Guid.Parse(Identity.Claims.FirstOrDefault(x => x.Type == UwUserClaimTypes.UserId)?.Value ?? throw new NullReferenceException("Claim userId was not found")); 
-		}
-	}
-	public Guid EmployeeId
-	{
-		get
-		{
-			return Guid.Parse(Identity.Claims.FirstOrDefault(x => x.Type == UwUserClaimTypes.EmployeeId)?.Value ?? throw new NullReferenceException("Claim employeeId was not found"));
-		}
-	}
-
-	public bool IsEmployee
-	{
-		get
-		{
-			return Identity.Claims.FirstOrDefault(x => x.Type == UwUserClaimTypes.EmployeeId) != null;
+			return Guid.Parse(Identity.Claims.FirstOrDefault(x => x.Type == RUserClaimTypes.UserId)?.Value ?? throw new NullReferenceException("Claim userId was not found")); 
 		}
 	}
 }
