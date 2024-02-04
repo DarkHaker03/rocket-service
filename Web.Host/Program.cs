@@ -76,23 +76,23 @@ ClaimsPrincipal.ClaimsPrincipalSelector = () =>
 
 app.UseCors(MyAllowSpecificOrigins);
 
-var filesOptions = app.Services.GetService<IOptions<FilesOptions>>().Value;
-var hostOptions = app.Services.GetService<IOptions<UwOptions>>().Value;
+//var filesOptions = app.Services.GetService<IOptions<FilesOptions>>().Value;
+//var hostOptions = app.Services.GetService<IOptions<UwOptions>>().Value;
 
-var isPathExists = Directory.Exists(filesOptions.StoragePath);
+//var isPathExists = Directory.Exists(filesOptions.StoragePath);
 
-if (!isPathExists)
-{
-    Directory.CreateDirectory(filesOptions.StoragePath + hostOptions.MediaPath);
-} 
+//if (!isPathExists)
+//{
+//    Directory.CreateDirectory(filesOptions.StoragePath);
+//} 
 
-var path = Path.GetFullPath(filesOptions.StoragePath, app.Environment.ContentRootPath);
+//var path = Path.GetFullPath(filesOptions.StoragePath, app.Environment.ContentRootPath);
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(path),
-    RequestPath = hostOptions.MediaPath
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(path),
+//    RequestPath = hostOptions.MediaPath
+//});
 
 
 app.UseAuthentication();

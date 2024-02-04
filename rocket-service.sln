@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Host", "Web.Host\Web.Host.csproj", "{624D1C7C-E825-44F2-A51F-FC568D1A4DA5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C3CDBFAE-08F7-425C-9578-06A2A27E6BE7}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Web.Host\Dockerfile = Web.Host\Dockerfile
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{C8B739AD-0333-4408-A4FB-EFB79AF8C392}"
 EndProject

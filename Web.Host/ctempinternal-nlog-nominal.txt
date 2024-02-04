@@ -1,0 +1,20 @@
+2024-02-04 15:49:23.6878 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=coloredConsole)
+2024-02-04 15:49:23.7938 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-04 15:49:23.8067 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-02-04 15:49:23.8155 Info Validating config: TargetNames=coloredConsole, ConfigItems=37, FilePath=/app/bin/Debug/net8.0/NLog.config
+2024-02-04 15:49:23.8282 Info Configuration initialized.
+2024-02-04 16:29:30.2155 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=coloredConsole)
+2024-02-04 16:29:30.3309 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-04 16:29:30.3524 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-02-04 16:29:30.3607 Info Validating config: TargetNames=coloredConsole, ConfigItems=37, FilePath=/app/bin/Debug/net8.0/NLog.config
+2024-02-04 16:29:30.3802 Info Configuration initialized.
+2024-02-04 16:33:38.7906 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=coloredConsole)
+2024-02-04 16:33:38.9114 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-04 16:33:38.9298 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-02-04 16:33:38.9391 Info Validating config: TargetNames=coloredConsole, ConfigItems=37, FilePath=/app/bin/Debug/net8.0/NLog.config
+2024-02-04 16:33:38.9557 Info Configuration initialized.
+2024-02-04 19:25:36.7402 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=coloredConsole)
+2024-02-04 19:25:36.8758 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.8.2366. Product version: 5.2.8+f586f1341c46fa38aaaff4c641e7f0fa7e813943. GlobalAssemblyCache: False
+2024-02-04 19:25:36.9079 Info LogManager.ThrowExceptions = true can crash the application! Use only for unit-testing and last resort troubleshooting.
+2024-02-04 19:25:36.9159 Info Validating config: TargetNames=coloredConsole, ConfigItems=37, FilePath=/app/bin/Debug/net8.0/NLog.config
+2024-02-04 19:25:36.9269 Info Configuration initialized.
